@@ -4,8 +4,15 @@ const resolvers={
         hello:()=>{
             return 'Hello World';
         },
-        getAllPosts:async()=>{
+        getAllPosts:async(req,res)=>{
             return await Demo.find()
+            // const user=await Demo.findOne({email,Username,Password})
+            // if(user){
+            //     return res.json({status:'ok',user:true ,message:'Hi You are Logged In'})
+            // }
+            // else{
+            //     return res.json({status:'error',user:false ,message:'Login Credentials are wrong'})
+            // }
         }
     },
     Mutation:{

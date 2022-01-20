@@ -16,7 +16,6 @@ input PostInput{
     Password:String
     email:String
 }
-
 type Mutation{
     createPost(
         Username:String!

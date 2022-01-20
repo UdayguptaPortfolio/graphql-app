@@ -109,7 +109,7 @@ input[type=email]{
   color: rgb(52, 16, 85);
   border-radius: 50px;
 }
-.registration{
+.registration,.Login{
   margin: 15px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align:center;
