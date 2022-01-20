@@ -1,6 +1,7 @@
 import './App.css';
 import {ApolloClient,InMemoryCache,ApolloProvider} from "@apollo/client";
 import Register from './Register';
+import Login from './Login';
 
 
 function App() {
@@ -10,14 +11,9 @@ function App() {
   });
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          GraphQL Registration Form
-        </p>
-      </header> */}
       <ApolloProvider client={client}>
       <Register/>
+      <Login/>
       </ApolloProvider>
     </div>
   );

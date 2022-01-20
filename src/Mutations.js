@@ -12,6 +12,9 @@ export const CREATE_USER=gql`
           email: $email
         ) {
           id
+          Username
+          Password
+          email
         }
     }
 `
