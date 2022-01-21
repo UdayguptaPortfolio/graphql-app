@@ -16,5 +16,18 @@ export const CREATE_USER=gql`
           Password
           email
         }
-    }
+    }  
+`
+export const CHECK_USER=gql`
+    mutation(
+      $Password: String!,
+      $email: String!
+    ) {
+      login(
+        Password: $Password,  
+          email: $email
+        ){
+          email
+        }
+}
 `

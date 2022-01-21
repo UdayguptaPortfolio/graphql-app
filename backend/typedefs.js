@@ -11,17 +11,18 @@ type Query{
     hello:String
     getAllPosts:[Demo]
 }
-input PostInput{
-    Username:String
-    Password:String
-    email:String
-}
+
 type Mutation{
     createPost(
         Username:String!
         Password:String!
         email:String!
         ):Demo
+    login(
+        Password:String!
+        email:String!
+    ):Demo
+    
 }
 `;
 
