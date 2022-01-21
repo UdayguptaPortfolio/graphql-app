@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import { useQuery } from "@apollo/client";
-import { GET_USER_LIST } from "./Queries";
+import {CHECK_USER} from './Mutations';
+import { useMutation } from "@apollo/client";
 
 function Signin(){
     const[inputField,setInputField]=useState({
@@ -15,15 +15,20 @@ function Signin(){
             ...inputField,[event.target.name]:event.target.value
         });
     }
-const {data}=useQuery(GET_USER_LIST);
-console.log(data);  
-
-const login=()=>{
-if(data===inputField){
-    console.log("Logged In Successfully")
-}else{
-    console.log("Login Credentials Wrong")
-}
+ const [login,{error}]=useMutation(CHECK_USER,
+    {
+        onCompleted: (data) => {
+          console.log(data) // the response
+        },
+        onError: (error) => {
+          console.log(error); // the error if that is the case
+        },
+      }
+    );  
+const loginUser=()=>{
+    login({
+        variables:inputField
+    })
 };
     return (
         <div className='App'>
@@ -32,7 +37,7 @@ if(data===inputField){
                 <input type="text" placeholder="Enter Your Username...." name="Username" onChange={(e)=>inputHandler(e)} value={inputField.Username} />
         <input type="email" placeholder="Enter Your Email...." name="email" onChange={(e)=>inputHandler(e)} value={inputField.email}/>
             <input type="password" placeholder="Enter Your Password...." name="Password" onChange={(e)=>inputHandler(e)} value={inputField.Password} />
-        <br/><br/><br/><br/><br/><br/><br/><button onClick={login}>Login</button> 
+        <br/><br/><br/><br/><br/><br/><br/><button onClick={loginUser}>Login</button> 
             </div>
             </div>
     )

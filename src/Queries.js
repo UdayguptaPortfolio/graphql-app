@@ -4,9 +4,7 @@ export const GET_USER_LIST=gql`
 {
     getAllPosts
 		{
-    	id,
-    	Username,
-			email,
+		email,
     	Password,
     }
 }
